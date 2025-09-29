@@ -96,7 +96,16 @@
       color: #0077cc;
       text-decoration: none;
     }
-
+    @keyframes shakey {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0eg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+    .shake-animation {
+      animation: shakey 0.5s ease;
+    }
     @media (max-width: 900px) {
       .project-card {
         flex: 1 1 calc(50% - 20px);
