@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!-- Derek Hargitt 09/14/2025 -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="menu">
+    <ul>
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#projects">Projects</a>
+      </li>
+      <li>
+        <a href="#about">About</a>
+      </li>
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+    </ul>
+  </nav>
+  <header>
+    <h1 class="intro-headline">Welcome to My Portfolio</h1>
+    <p>Explore my work, projects, and skills below.</p>
+  </header>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Project One</h3>
+        <p>A showcase of my first featured project.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <p>A showcase of my second featured project.</p>
+      </div>
+
+      <div class="project-card">
+        <h3>Project Three</h3>
+        <p>A showcase of my third featured project.</p>
+      </div>
+
+    </div>
+  </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>WIP</p>
+    <button id="toggle-about">More About Me</button>
+    <div id="about-details" style="display:none;">
+      <p>WIP</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>If you'd like to get in touch, please <a href="mailto:dhargitt@stumail.jccc.edu">Contact me</a>.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Derek Hargitt. All rights reserved.</p>
+  </footer>
+
+  <script>
+    $(document).ready(function(){
+
+      //animate menu buttons on hover
+      $('.menu ul li a').hover(
+      function() {
+        $(this).addClass('shake-animation');
+      }
+      );
+      $('.menu ul li a').on('animationend', function() {
+        $(this).removeClass('shake-animation');
+      });
+
+
+      //Fade in headline effect
+      $(".intro-headline").hide().fadeIn(1500);
+
+      //Filters for elements with the project-card class and selects the first project card and adds the highlight class
+      $(".project-card:first").addClass("highlight");
+
+      //Filters for a elements that contain the word Contact
+      $("a:contains('Contact me')").css({
+        "font-weight": "bold",
+        "color": "#0077cc"
+      });
+
+      //Selects all project cards and applies a hover animation
+      $(".project-card").hover(
+        function() {
+          $(this).animate({ 
+            opacity: 1,
+            marginTop: "-15px"
+          }, 300);
+        },
+        function() {
+          $(this).animate({ 
+            opacity: 0.5,
+            marginTop: "0px"
+          }, 300);
+        }
+      );
+
+      //Selects the More About Me button and applies a toggle effect to show/hide the about-details div
+      $("#toggle-about").click(function(){
+        $("#about-details").slideToggle();
+      });
+
+    });
+  </script>
+</body>
+</html>
